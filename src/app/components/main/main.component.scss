@@ -1,0 +1,89 @@
+@import "../../../styles";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+
+  &-title {
+    color: #000000;
+  }
+
+  &-actions {
+    display: flex;
+
+    &__btn {
+      margin-left: 10px;
+      padding: 8px 40px;
+      border: none;
+      border-radius: 3px;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+
+      &.load {
+        background-color: #FF0266;
+      }
+      &.clear {
+        background-color: #03DAC5;
+      }
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+
+  &-input {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  &-submit {
+    width: 100%;
+    background-color: #6200EE;
+  }
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+
+    .delete {
+      border: none;
+      color: #B00020;
+      background: transparent;
+      font-size: 2rem;
+      font-weight: 300;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .save {
+      background-color: #FF0266;
+      color: #f2f2f2;
+      padding: 4px 12px;
+    }
+  }
+
+  th {
+    background-color: #ddd;
+    color: #222;
+  }
+
+  tr:hover {
+    background-color:#f5f5f5;
+  }
+}
+
+
+

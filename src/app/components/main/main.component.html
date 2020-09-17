@@ -1,1 +1,51 @@
-<p>main works!</p>
+<div class="container">
+  <div class="header">
+    <h1 class="header-title">Weather App</h1>
+    <div class="header-actions">
+      <button class="header-actions__btn btn load" (click)="loadStorage()">load storage</button>
+      <button class="header-actions__btn btn clear" (click)="clearStorage()">clear storage</button>
+    </div>
+  </div>
+
+  <div class="form">
+    <input class="form-input"
+           type="text"
+           placeholder="City name"
+           [(ngModel)]="inputValue"
+           (keyup.enter)="onAdd()"
+    >
+    <button class="form-submit btn" type="submit" (click)="onAdd()">add</button>
+  </div>
+
+  <table class="table" *ngIf="weatherData.length > 0; else noData">
+    <tr>
+      <th>City</th>
+      <th>Temp</th>
+      <th>weather</th>
+      <th>Humidity</th>
+      <th>Wind</th>
+      <th>Save</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let item of weatherData">
+      <td>{{item.name}}</td>
+      <td>
+        {{item.main.temp_max.toFixed(0)}}° /
+        {{item.main.temp_min.toFixed(0)}}°
+      </td>
+      <td>{{item.weather[0].main}}</td>
+      <td>{{item.main.humidity}}</td>
+      <td>{{item.wind.speed}}</td>
+      <td>
+        <button class="save btn" (click)="onSave(item)">save</button>
+      </td>
+      <td>
+        <button class="delete" (click)="removeCity(item.id)">&times;</button>
+      </td>
+    </tr>
+  </table>
+
+  <ng-template #noData>
+    <p [style]="{textAlign: 'center'}">No cities added yet...</p>
+  </ng-template>
+</div>
